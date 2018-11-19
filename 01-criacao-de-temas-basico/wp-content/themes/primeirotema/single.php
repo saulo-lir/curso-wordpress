@@ -1,10 +1,17 @@
 <!-- Esse arquivo é responsável pela visualização do post --> 
 
-<?php get_header(); ?>
+<?php 
+	get_header(); 
+
+	// print_r($post); exit; Toda página de exibição do post traz consigo a variável $post que contém
+	// todas as informações do post que está sendo exibido
+?>
 
 <section>
 	
 	<div class="container">
+		<!-- REQUISIÇÃO PRINCIPAL -->
+		
 		<?php if(have_posts()): ?>
 			<?php while(have_posts()): ?>
 
@@ -33,6 +40,37 @@
 					<p>							
 						<?php comments_number('0 comentários', '1 comentário', '% comentários'); ?>
 					</p>
+
+					<hr/>
+
+					<h3>Posts Relacionados</h3>
+
+					<?php 
+						// FAZENDO UMA REQUISIÇÃO SECUNDÁRIA
+
+						$categories = get_the_category(); // Seleciona todas as categorias utilizadas no sistema
+
+						// Classe responsável em fazer as consultas no banco de dados
+						$sp_query = new WP_Query(array(
+							'post_per_page' => 3, // Post por página
+							'post__not_in' => array( $post->ID ), // Não irá selecionar o post atual
+							'cat' => $categories[0]->term_id// Irá filtrar pela categoria do post
+						));
+
+						// Exibir os dados consultados na query
+						if($sp_query->have_posts()){
+							while($sp_query->have_posts()){
+								$sp_query->the_post();
+
+								get_template_part('template_parts/related_post');
+
+							}
+
+							// Reseta esse post secundário para que o post principal possa continuar sua execução
+							wp_reset_postdata();
+						}
+
+					?>
 
 					<hr/>
 

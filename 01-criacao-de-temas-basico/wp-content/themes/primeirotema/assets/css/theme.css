@@ -43,3 +43,8 @@ sidebar{
 .pagina_proxima{
 	float:left;
 }
+
+.post_related_item{
+	width:33%;
+	float-left;
+}

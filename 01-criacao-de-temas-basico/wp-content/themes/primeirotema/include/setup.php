@@ -1,5 +1,7 @@
 <?php
 
+// Esse arquivo contém as configurações principais dp sistema
+
 function sp_theme_styles(){	
 
 	// Adiciona css na página
@@ -21,6 +23,8 @@ function sp_after_setup(){
 	// Habilita nosso tema a mostrar miniaturas dos posts
 	add_theme_support('post-thumbnails');
 
+	// Habilita nosso tema a ter controle sobre a tag <title>
+	add_theme_support('title-tag');
 
 	// Habilitar suporte a menus no tema (nas versões atuais do wordpress, essa função já é carregada ao usarmos o register_nav_menu)
 
@@ -33,6 +37,9 @@ function sp_after_setup(){
 
 	// Para visualizarmos os menus registrados, acessamos o painel administrativo, 
 	// navegando até Aparência/menus
+
+	// Habilita nosso tema a receber logos personalizadas
+	add_theme_support('custom_logo');
 }
 
 function sp_widgets(){
