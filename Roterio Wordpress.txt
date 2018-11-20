@@ -6,6 +6,12 @@ se trata de um novo tema: index.php e style.css
 3) No arquivo style.css, inserir as configurações básicas
 4) Criar o arquivo functions.php para inserção da lógica do sistema e configurações básicas
 5) Criação do arquivo include/setup.php para inserção dos arquivos (css, javascript, etc) e funções que serão carregados no sistema
-6) Estruturação do projeto, separando o cabeçalho, rodapé e demais códigos nos seus devidos arquivos e diretórios
-7) Criação do arquivo post.php na raiz do tema para que sejam renderizadas as postagens
-8) Criação do arquivo single.php para que seja exibido os detalhes da postagem ao clicarmos em uma
+6) Estruturação do projeto, separando o cabeçalho, rodapé e demais códigos nos seus devidos arquivos e diretórios:
+
+	- header.php
+	- footer.php
+	- functions.php
+	- include/setup.php
+	- template_parts/post.php (Exibição das postagens no index dentro do while)
+	- single.php (Exibição de uma postagem específica )
+	- page.php (Páginas estáticas)

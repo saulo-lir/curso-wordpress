@@ -1,4 +1,5 @@
 <?php 
+// Aqui é onde de fato implementamos as customizações a serem adicionadas no painel administrativo Aparência/Personalizar)
 
 function sm_social_customizer($wp_customize){
 	// Settings
@@ -9,7 +10,7 @@ function sm_social_customizer($wp_customize){
 	// Sections
 	$wp_customize->add_section('sm_social_section', array(
 		'title' => 'Redes Sociais',
-		'priority' => '1'
+		'priority' => 1
 	));
 
 	// Controllers

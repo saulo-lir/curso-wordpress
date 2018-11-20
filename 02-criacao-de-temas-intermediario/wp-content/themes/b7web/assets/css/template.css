@@ -1,0 +1,77 @@
+body{
+	margin:0;
+}
+
+.top_head{
+	height:5px;
+	background-color:#2d3a64;
+}
+
+.custom-logo{
+	height:60px;
+	width:auto;
+	margin-top:20px;
+	margin-bottom:20px;
+}
+
+.banner{
+	background-image:url('../images/bg.jpg');
+	background-position:center;
+	height: 300px;
+}
+
+.hero-image{
+	height:285px;
+	margin-top:15px;
+}
+
+.menuarea{
+	float:right;
+}
+
+.menuarea nav{
+	float:left;
+}
+
+.menuarea .social{
+	float:left;
+	margin-left:15px;
+}
+
+.menuarea .social img{
+	height:20px;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 40px;
+}
+
+.menuarea .social a{
+	text-decoration: none;
+}
+
+.menuarea nav ul,
+.menuarea nav li{
+	padding:0;
+	margin:0;
+	list-style:none;
+}
+
+.menuarea nav li{
+	float:left;
+	margin-left: 6px;
+	margin-right: 6px;
+	line-height: 100px;
+}
+
+.menuarea nav li a{
+	text-transform: uppercase;
+}
+
+.banner h2{
+	color:#FFF;
+}
+
+.depoimentos{
+	background-color: #e3e3e3;
+	height:100px;
+}

@@ -2,7 +2,9 @@
 
 <section>
 	<div class="container">
-		<div class="row">
+		
+		<!-- É uma boa prática utilizar o the_ID() para pegar o id do post -->
+		<div id="post-<?php the_ID(); ?>" class="row">
 			<div class="col-sm-8">
 				<?php 
 					if(have_posts()){

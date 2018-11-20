@@ -14,6 +14,39 @@ function sm_after_setup(){
 	add_theme_support("title-tag");
 	add_theme_support("custom-logo");
 
+	// Adicionar formatos diferentes de posts
+	add_theme_support("post-formats", array('video', 'audio'));
+
+	// Adicionar suporte aos custom headers, que são os cabeçalhos de páginas preenchidos com imagens
+	add_theme_support("custom-header", array(
+		'default-image' => get_template_directory_uri().'/assets/images/headers/katana.png',
+		'width' => 1280, // Opcional
+		'height' => 400, // Opcional
+		'flex-width' => true, // Opcional
+		'flex-height' => true // Opcional
+		//'header-text' => false,  Opcional (Por padrão é true)
+		//'uploads' => false,  Opcional (Bloqueia o upload de imagens) 
+	));
+	// Registra headers padrões
+	register_default_headers(array(
+		'headers1' => array(
+			'url' => get_template_directory_uri().'/assets/images/headers/image1.png',
+			'thumbnail_url' => get_template_directory_uri().'assets/images/headers/image1.png',
+			'description' => 'Header 1'
+		),
+		'headers2' => array(
+			'url' => get_template_directory_uri().'/assets/images/headers/image2.png',
+			'thumbnail_url' => get_template_directory_uri().'assets/images/headers/image2.png',
+			'description' => 'Header 2'
+		),
+		'headers3' => array(
+			'url' => get_template_directory_uri().'/assets/images/headers/image3.png',
+			'thumbnail_url' => get_template_directory_uri().'/assets/images/headers/image3.png',
+			'description' => 'Header 3'
+		)
+
+	));
+
 	// Habilitando os menus
 	register_nav_menu("primary", "Menu Primário");
 	register_nav_menu("top", "Menu Superior");
