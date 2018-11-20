@@ -1,0 +1,50 @@
+body{
+	background-color:#CCC;
+}
+
+.main_menu{
+	display:inline;
+}
+
+.main_menu ul,
+.main_menu li{
+	list-style:none;
+	padding:0;
+	margin:0;
+}
+
+.container{
+	width:70%;
+	float:left;
+}
+
+.fullwidth{
+	width:100%;
+}
+
+sidebar{
+	width:30%;
+	float:left;
+}
+
+.widget_title{
+	color:#0000FF;
+}
+
+.paginacao{
+	margin-top:30px;
+	margin-bottom:30px;
+}
+
+.pagina_anterior{
+	float:left;
+}
+
+.pagina_proxima{
+	float:left;
+}
+
+.post_related_item{
+	width:33%;
+	float-left;
+}

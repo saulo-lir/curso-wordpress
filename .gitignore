@@ -11,9 +11,28 @@
 01-criacao-de-temas-basico/wp-content/wp-cache-config.php
 01-criacao-de-temas-basico/wp-content/plugins/hello.php
 
-01-criacao-de-temas-basico/.htaccess
-01-criacao-de-temas-basico/license.txt
-01-criacao-de-temas-basico/readme.html
-01-criacao-de-temas-basico/sitemap.xml
-01-criacao-de-temas-basico/sitemap.xml.gz
+02-criacao-de-temas-intermediario/.htaccess
+02-criacao-de-temas-intermediario/license.txt
+02-criacao-de-temas-intermediario/readme.html
+02-criacao-de-temas-intermediario/sitemap.xml
+02-criacao-de-temas-intermediario/sitemap.xml.gz
+
+02-criacao-de-temas-intermediario/*.log
+02-criacao-de-temas-intermediario/wp-config.php
+02-criacao-de-temas-intermediario/wp-content/advanced-cache.php
+02-criacao-de-temas-intermediario/wp-content/backup-db/
+02-criacao-de-temas-intermediario/wp-content/backups/
+02-criacao-de-temas-intermediario/wp-content/blogs.dir/
+02-criacao-de-temas-intermediario/wp-content/cache/
+02-criacao-de-temas-intermediario/wp-content/upgrade/
+02-criacao-de-temas-intermediario/wp-content/uploads/
+02-criacao-de-temas-intermediario/wp-content/mu-plugins/
+02-criacao-de-temas-intermediario/wp-content/wp-cache-config.php
+02-criacao-de-temas-intermediario/wp-content/plugins/hello.php
+
+02-criacao-de-temas-intermediario/.htaccess
+02-criacao-de-temas-intermediario/license.txt
+02-criacao-de-temas-intermediario/readme.html
+02-criacao-de-temas-intermediario/sitemap.xml
+02-criacao-de-temas-intermediario/sitemap.xml.gz
 
