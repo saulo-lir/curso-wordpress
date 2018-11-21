@@ -15,3 +15,23 @@ se trata de um novo tema: index.php e style.css
 	- template_parts/post.php (Exibição das postagens no index dentro do while)
 	- single.php (Exibição de uma postagem específica )
 	- page.php (Páginas estáticas)
+
+
+### Plugins ###
+
+Um TEMA atua exclusivamente na parte visual e externa do site.
+
+Um PLUGIN além de atuar externamente no wordpress, também atua internamente.
+
+1) O plugin pode ser criado dentro de um diretório ou fora dele, na pasta plugins. Mas por boas práticas,
+é melhor criá-lo dentro de uma pasta
+
+2) Podemos cria-lo inicialmente com um arquivo index.php ou nomedoplugin.php
+3) No arquivo index, criamos o comentário com o Plugin Name para o plugin já ser válido pelo wordpress
+4) Hooks (Ganchos): São eventos que são executados quando uma determinada ação acontece no sistema. Podem ser: 
+	- Action Hooks: Ganchos que são adicionados em ações específicas que acontecem durante o processo de carregamento do site. Tem total liberdade alterar todo o sistema.
+
+	- Filter Hooks: É um gancho mais restrito. Ele recebe um dado e o wordpress espera receber esse dado já tratado.
+
+5) Um hook criado num plugin pode ser utilizado por outro plugin ou tema
+
