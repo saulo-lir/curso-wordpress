@@ -35,3 +35,4 @@ Um PLUGIN além de atuar externamente no wordpress, também atua internamente.
 
 5) Um hook criado num plugin pode ser utilizado por outro plugin ou tema
 
+6) Site para gerar códigos wordpress: generatewp.com
