@@ -1,0 +1,122 @@
+1) Manter o Wordpress atualizado:
+	- Atualizar o próprio Wordpress
+	- Atualizar Temas
+	- Atualizar Plugins
+
+2) Fazer Backups. Existem plugins que podem ser instalados para realização de backup, os mais usados são:
+
+	- BackupBuddy (Pago).
+	- UpdraftPlus (Pago e Gratuito)
+
+3) Sucuri Security: Plugin de segurança mais famoso para bloquear vulnerabilidades comuns do Wordpress.
+	Para ele funcionar corretamente, é necessário obter a chave da api, em:
+
+	- Sucuri Security/Settings -> Clicar no botão "Generate API"
+
+4) Desabilitar o editor.
+
+	- Para editar um arquivo de um tema específico, podemos ir em "Aparência/Editor". Porém, isso pode representar um risco de segurança se for acessado por alguém mal intencionado. Dessa forma, 
+	podemos desabilitar o editor.
+	Para desabilitar, podemos entrar no arquivo wp-config.php e inserir o código:
+
+		define('DISALLOW_FILE_EDIT', true);
+
+5) Desativar a execução de arquivos PHP
+	Geralmente a porta de entrada de arquivos php maliciosos no sistema é através de uploads de arquivos.
+	Dessa forma, devemos navegar até a pasta uploads, criar o arquivo .htaccess e inserimos as configurações:
+
+	<Files *.php>
+		deny from all
+	</Files>
+
+	Basicamente estamos dizendo que todo arquivo com a extensão .php será negado dentro da pasta
+
+	Esse mesmo procedimento pode ser feito na pasta wp-includes, uma vez que ela contém arquivos de plugins
+
+6) Limitar tentativas de login.
+	- Podemos instalar um plugin específico para isso: login lockdown
+	- Para configurar o plugin, entramos em "Configurações/Login LockDown"
+
+7) Mudar o prefixo padrão do banco de dados.
+
+	Como o prefixo padrão -e "wp_", fica fácil algum invasor saber os nomes das tabelas do sistema.
+
+	Passo a Passo:
+
+	- Considerando que o site está no ar, devemos redirecionar o usuário para outra página assim que ele
+	entrar no sistema.
+	- Navegamos até o wp-config.php e vamos até a linha:
+
+		$table_prefix  = 'wp_';
+
+
+	- Alteramos então o prefixo seguindo o padrão: wp_algumoutroprefixo_
+
+	- No banco de dados, devemos altualizar o nome de TODAS as tabelas, uma por uma, inserindo o novo prefixo
+
+	- Devemos atualizar umas configurações na tabela wp_options, fazendo a seguinde query:
+
+		SELECT * FROM wp_algumoutroprefixo_options WHERE option_name LIKE '%wp_%'
+
+		No resultado, todo dado que tiver o prefixo 'wp_', alteramos ele para o novo prefixo
+
+	- Após isso, executamos outra query no banco:
+
+		SELECT * FROM wp_algumoutroprefixo_usermeta WHERE meta_key LIKE '%wp_%'
+
+		No resultado, todo dado que tiver o prefixo 'wp_', alteramos ele para o novo prefixo
+
+
+8) Desativar indexing de diretórios
+	
+	Bloquear que uma pasta seja acessada diretamente pela url, exibindo assim o contéudo dos diretórios,
+	deixando o sistema vulnerável.
+
+	1 - Bloquear acesso indevido na pasta do plugin:
+
+		- Criamos o arquivo .htaccess na pasta do plugin e inserimos o código:
+
+		Options -Indexes
+
+		Dessa forma, estaremos negando a listagem dos itens da pasta do plugin
+
+	2 - Bloquear acesso indevido em todo o sistema:
+
+		- Acessamos o .htaccess da raiz do sistema e no final do arquivo inserimos o mesmo código anterior:
+
+		Options -Indexes
+
+9) Deslogar usuários inativos automaticamente
+
+	Passo a Passo:
+
+	1 - Criar um plugin que contém um javascript que terá uma função de contador, para que quando se atinja
+	um limite de tempo, ele irá requisitar o logout do sistema. Para renovar o tempo, basta interagirmos com o site.
+
+	2 - Podemos também instalar um plugin que tem essa funcionalidade: Idle User Logout ou Inactive Logout
+
+10) Corrigir um site já hackeado:
+
+	Possíveis soluções:
+
+	- Identificar o tipo de hack: Eu consigo acessar minha conta? Estou sendo redirecionado para outro site? O que foi alterado no meu site caso eu ainda consiga acessá-lo.
+
+	- Trocar todas as senhas.
+
+	- Verificar a hospedagem, contatando o suporte.
+
+	- Caso tenha backup, fazer a restauração.
+
+	- Verificar e deletar temas e plugins inativos
+
+	- Verificar na pasta de uploads por arquivos indesejados
+
+	- Trocar todo o CORE do wordpress: Baixar novamente o wordpress e utilizá-lo, substituindo somente os arquivos criados no sistema.
+
+	- Verificar se o wp-config e o .htaccess contém algum código malicioso
+
+	- Verificar as permissões de usuários no banco de dados (Qual usuário tem permissão de fazer o quê)
+
+	- Mudar as secret-keys do wp-config
+
+	- Mudar as senhas de acesso ao sistema
