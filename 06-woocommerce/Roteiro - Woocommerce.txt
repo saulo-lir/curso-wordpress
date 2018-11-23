@@ -1,0 +1,16 @@
+1- Todos os arquivos dentro da pasta "templates/global" são arquivos reutilizáveis por outros temas
+
+2- Arquivo que contém todos os hooks: "includes/wc-template-hooks.php"
+
+3- Arquivo que contém todas as functions: "includes/wc-template-functions.php"
+
+4- Remover um hook do woocommercer (Exemplo):
+
+	Entrar na pasta do tema que estamos usando, e no arquivo functions.php, adicionar o código:
+
+		remove_action('woocommerce_sidebar', 'woocommerce_get_sidebar', 10);
+					// Nome do hook, nome da função que o hook está ativando
+
+5- Podemos também alterar um hook, mudando a função que ele irá ativar.
+
+		add_action('woocommerce_sidebar', 'alguma_funcao', 10);
