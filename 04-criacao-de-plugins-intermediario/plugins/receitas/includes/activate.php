@@ -15,16 +15,8 @@ function sr_activate_plugin(){
 
 	}
 
-	// Chamada da função que cria o post_typ, definida no arquivo init.php
-	sr_receitas_init();
-
-	// Alterando as regras de escrita das urls (Rewrite)
-	// Isso garante que não ocorra erro no worpress na hora de ler as regras de rewrite
-	flush_rewrite_rules();
-
-	// Criação de tabelas no banco de dados
-
-	global $wpdb; // Objeto responsável pelas operações com banco de dados
+	// Criando uma tabela no banco de dados
+	global $wpdb;
 
 	$sql = "CREATE TABLE ".$wpdb->prefix."receitas_votos (
 		ID BIGINT(20) NOT NULL AUTO_INCREMENT,
@@ -34,19 +26,7 @@ function sr_activate_plugin(){
 		PRIMARY KEY (ID)
 	) ".$wpdb->get_charset_collate();
 
-	// Pegando o arquivo do wordpress responsável pela execução de comandos SQL
 	require_once(ABSPATH.'/wp-admin/includes/upgrade.php');
-
 	dbDelta($sql);
-
-	// Para criar a tabela após a criação da query, basta desativarmos o plugin e ativá-lo novamente
-
-
-	// Usando CronJobs
-
-	// Frequência de execução do código: hourly, dialy, twicedaily
-
-	wp_schedule_event(time(), 'dialy', 'sr_receita_diaria_hook');
-
 
 }

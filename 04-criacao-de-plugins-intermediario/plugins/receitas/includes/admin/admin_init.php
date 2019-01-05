@@ -1,7 +1,6 @@
 <?php 
 require 'metabox_sr_receita_opcoes.php';
 require 'enqueue.php';
-require 'columns.php';
 
 // Arquivo de configuração das funções do painel administrativo
 function sr_receitas_admin_init(){
@@ -11,12 +10,6 @@ function sr_receitas_admin_init(){
 
 	// Adicionando os scripts e css para serem utilizadas no painel administrativo
 	add_action('admin_enqueue_scripts', 'sr_admin_enqueue');
-
-	// Cria a estrutura da tabela html do painel administrativo para exibir os campos personalizados que queremos (no caso, quantidade de votos e média)
-	add_filter('manage_receita_posts_columns', 'sr_receita_columns');
-
-	// Insere na tabela html os dados personalizados que queremos (no caso, quantidade de votos e média)
-	add_action('manage_receita_posts_custom_column', 'sr_manage_receita_columns', 10, 2);
 
 }
 
